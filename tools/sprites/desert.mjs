@@ -239,10 +239,16 @@ export const GLADIATOR_SHEET = () => {
     const hand = [bsh[0] + Math.cos(ba) * rig.armLen, bsh[1] + Math.sin(ba) * rig.armLen];
     stampRotated(cv, DS_WEAPONS.bigGladius, Math.round(hand[0]), Math.round(hand[1]), pose.oa ?? pose.ba ?? 100, pal);
   };
-  const spin = (k) => {
-    const a = k * 90;
-    return { lean: 0, a, r: 10, ba: a + 180, oa: a + 180, by: 1, fx: k % 2 ? 4 : -4, bx: k % 2 ? -4 : 4 };
-  };
+  /**
+   * A whirl seen from the side, in four frames. The game flips the sprite for frames 2 and 3, so in the world
+   * the body turns right → left → right while the blades sweep flat around him:
+   *  even frames: blades flung out level to both sides (front forward, off-hand back), wide stance
+   *  odd frames:  mid-turn – both arms swept across the chest, the blades have swapped sides
+   */
+  const spin = (k) =>
+    k % 2 === 0
+      ? { lean: 1, a: -4, r: 10, ba: 184, oa: 184, by: 2, fx: 6, bx: -6 }
+      : { lean: -1, a: 176, r: 4, ba: 4, oa: 4, by: 2, fx: 3, bx: -3, fl: 2 };
   return {
     key: 'gladiator',
     fw: 96,
