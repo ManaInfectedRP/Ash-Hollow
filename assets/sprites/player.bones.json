@@ -1,0 +1,442 @@
+{
+ "idle0": {
+  "x": 26,
+  "y": 20,
+  "a": 70,
+  "show": true,
+  "sx": 20,
+  "sy": 22,
+  "front": false,
+  "sa": 100
+ },
+ "idle1": {
+  "x": 26,
+  "y": 21,
+  "a": 72,
+  "show": true,
+  "sx": 20,
+  "sy": 23,
+  "front": false,
+  "sa": 102
+ },
+ "run0": {
+  "x": 28,
+  "y": 19,
+  "a": 35,
+  "show": true,
+  "sx": 18,
+  "sy": 20,
+  "front": false,
+  "sa": 140
+ },
+ "run1": {
+  "x": 28,
+  "y": 18,
+  "a": 40,
+  "show": true,
+  "sx": 20,
+  "sy": 21,
+  "front": false,
+  "sa": 110
+ },
+ "run2": {
+  "x": 28,
+  "y": 19,
+  "a": 35,
+  "show": true,
+  "sx": 25,
+  "sy": 21,
+  "front": false,
+  "sa": 60
+ },
+ "run3": {
+  "x": 28,
+  "y": 18,
+  "a": 40,
+  "show": true,
+  "sx": 21,
+  "sy": 21,
+  "front": false,
+  "sa": 100
+ },
+ "jump": {
+  "x": 28,
+  "y": 14,
+  "a": -30,
+  "show": true,
+  "sx": 17,
+  "sy": 19,
+  "front": false,
+  "sa": 150
+ },
+ "fall": {
+  "x": 27,
+  "y": 14,
+  "a": -60,
+  "show": true,
+  "sx": 16,
+  "sy": 15,
+  "front": false,
+  "sa": 200
+ },
+ "roll0": {
+  "x": 0,
+  "y": 0,
+  "a": 0,
+  "show": false,
+  "sx": 0,
+  "sy": 0,
+  "front": false,
+  "sa": 0
+ },
+ "roll1": {
+  "x": 0,
+  "y": 0,
+  "a": 0,
+  "show": false,
+  "sx": 0,
+  "sy": 0,
+  "front": false,
+  "sa": 0
+ },
+ "roll2": {
+  "x": 0,
+  "y": 0,
+  "a": 0,
+  "show": false,
+  "sx": 0,
+  "sy": 0,
+  "front": false,
+  "sa": 0
+ },
+ "roll3": {
+  "x": 0,
+  "y": 0,
+  "a": 0,
+  "show": false,
+  "sx": 0,
+  "sy": 0,
+  "front": false,
+  "sa": 0
+ },
+ "l1w": {
+  "x": 23,
+  "y": 15,
+  "a": -120,
+  "show": true,
+  "sx": 23,
+  "sy": 21,
+  "front": false,
+  "sa": 60
+ },
+ "l1s": {
+  "x": 32,
+  "y": 18,
+  "a": 10,
+  "show": true,
+  "sx": 19,
+  "sy": 20,
+  "front": false,
+  "sa": 150
+ },
+ "l1r": {
+  "x": 29,
+  "y": 20,
+  "a": 50,
+  "show": true,
+  "sx": 19,
+  "sy": 21,
+  "front": false,
+  "sa": 130
+ },
+ "l2w": {
+  "x": 23,
+  "y": 19,
+  "a": 140,
+  "show": true,
+  "sx": 23,
+  "sy": 22,
+  "front": false,
+  "sa": 70
+ },
+ "l2s": {
+  "x": 31,
+  "y": 14,
+  "a": -40,
+  "show": true,
+  "sx": 19,
+  "sy": 20,
+  "front": false,
+  "sa": 150
+ },
+ "l2r": {
+  "x": 30,
+  "y": 16,
+  "a": -10,
+  "show": true,
+  "sx": 19,
+  "sy": 21,
+  "front": false,
+  "sa": 130
+ },
+ "l3w": {
+  "x": 20,
+  "y": 17,
+  "a": -160,
+  "show": true,
+  "sx": 23,
+  "sy": 21,
+  "front": false,
+  "sa": 40
+ },
+ "l3s": {
+  "x": 31,
+  "y": 23,
+  "a": 55,
+  "show": true,
+  "sx": 19,
+  "sy": 21,
+  "front": false,
+  "sa": 160
+ },
+ "l3r": {
+  "x": 28,
+  "y": 22,
+  "a": 80,
+  "show": true,
+  "sx": 19,
+  "sy": 21,
+  "front": false,
+  "sa": 140
+ },
+ "hw": {
+  "x": 20,
+  "y": 17,
+  "a": -165,
+  "show": true,
+  "sx": 23,
+  "sy": 21,
+  "front": false,
+  "sa": 30
+ },
+ "hc": {
+  "x": 18,
+  "y": 19,
+  "a": -178,
+  "show": true,
+  "sx": 23,
+  "sy": 21,
+  "front": false,
+  "sa": 20
+ },
+ "hs": {
+  "x": 32,
+  "y": 22,
+  "a": 35,
+  "show": true,
+  "sx": 19,
+  "sy": 20,
+  "front": false,
+  "sa": 170
+ },
+ "hr": {
+  "x": 28,
+  "y": 22,
+  "a": 75,
+  "show": true,
+  "sx": 19,
+  "sy": 21,
+  "front": false,
+  "sa": 140
+ },
+ "aw": {
+  "x": 24,
+  "y": 14,
+  "a": -110,
+  "show": true,
+  "sx": 16,
+  "sy": 19,
+  "front": false,
+  "sa": 160
+ },
+ "as": {
+  "x": 29,
+  "y": 21,
+  "a": 45,
+  "show": true,
+  "sx": 16,
+  "sy": 15,
+  "front": false,
+  "sa": 200
+ },
+ "tw": {
+  "x": 24,
+  "y": 17,
+  "a": 8,
+  "show": true,
+  "sx": 16,
+  "sy": 20,
+  "front": false,
+  "sa": 150
+ },
+ "ts": {
+  "x": 34,
+  "y": 17,
+  "a": 0,
+  "show": true,
+  "sx": 19,
+  "sy": 18,
+  "front": false,
+  "sa": 170
+ },
+ "tr": {
+  "x": 30,
+  "y": 19,
+  "a": 25,
+  "show": true,
+  "sx": 19,
+  "sy": 21,
+  "front": false,
+  "sa": 130
+ },
+ "hurt": {
+  "x": 25,
+  "y": 16,
+  "a": -40,
+  "show": true,
+  "sx": 15,
+  "sy": 15,
+  "front": false,
+  "sa": 210
+ },
+ "block": {
+  "x": 25,
+  "y": 21,
+  "a": 80,
+  "show": true,
+  "sx": 25,
+  "sy": 17,
+  "front": true,
+  "sa": -8
+ },
+ "parry": {
+  "x": 27,
+  "y": 20,
+  "a": 85,
+  "show": true,
+  "sx": 27,
+  "sy": 13,
+  "front": true,
+  "sa": -45
+ },
+ "o1w": {
+  "x": 25,
+  "y": 20,
+  "a": 75,
+  "show": true,
+  "sx": 15,
+  "sy": 17,
+  "front": false,
+  "sa": 175
+ },
+ "o1s": {
+  "x": 27,
+  "y": 20,
+  "a": 110,
+  "show": true,
+  "sx": 29,
+  "sy": 17,
+  "front": true,
+  "sa": 2
+ },
+ "o1r": {
+  "x": 26,
+  "y": 20,
+  "a": 90,
+  "show": true,
+  "sx": 26,
+  "sy": 20,
+  "front": true,
+  "sa": 40
+ },
+ "xw": {
+  "x": 20,
+  "y": 18,
+  "a": 175,
+  "show": true,
+  "sx": 14,
+  "sy": 18,
+  "front": false,
+  "sa": 185
+ },
+ "xs": {
+  "x": 35,
+  "y": 18,
+  "a": 0,
+  "show": true,
+  "sx": 30,
+  "sy": 18,
+  "front": true,
+  "sa": -4
+ },
+ "xr": {
+  "x": 30,
+  "y": 19,
+  "a": 30,
+  "show": true,
+  "sx": 27,
+  "sy": 20,
+  "front": true,
+  "sa": 35
+ },
+ "rip1": {
+  "x": 25,
+  "y": 17,
+  "a": 5,
+  "show": true,
+  "sx": 16,
+  "sy": 20,
+  "front": false,
+  "sa": 150
+ },
+ "rip2": {
+  "x": 36,
+  "y": 17,
+  "a": 0,
+  "show": true,
+  "sx": 20,
+  "sy": 18,
+  "front": false,
+  "sa": 170
+ },
+ "drink": {
+  "x": 25,
+  "y": 14,
+  "a": -75,
+  "show": false,
+  "sx": 19,
+  "sy": 22,
+  "front": false,
+  "sa": 100
+ },
+ "kneel": {
+  "x": 26,
+  "y": 22,
+  "a": 90,
+  "show": true,
+  "sx": 23,
+  "sy": 25,
+  "front": false,
+  "sa": 80
+ },
+ "dead": {
+  "x": 0,
+  "y": 0,
+  "a": 0,
+  "show": false,
+  "sx": 0,
+  "sy": 0,
+  "front": false,
+  "sa": 0
+ }
+}

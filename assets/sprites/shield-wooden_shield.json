@@ -1,0 +1,34 @@
+{
+ "frames": {
+  "s": {
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 11,
+    "h": 11
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 11,
+    "h": 11
+   },
+   "sourceSize": {
+    "w": 11,
+    "h": 11
+   }
+  }
+ },
+ "meta": {
+  "app": "tools/sprites/build.mjs",
+  "image": "shield-wooden_shield.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 11,
+   "h": 11
+  },
+  "scale": "1"
+ }
+}

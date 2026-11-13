@@ -1,0 +1,34 @@
+{
+ "frames": {
+  "s": {
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 13,
+    "h": 13
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 13,
+    "h": 13
+   },
+   "sourceSize": {
+    "w": 13,
+    "h": 13
+   }
+  }
+ },
+ "meta": {
+  "app": "tools/sprites/build.mjs",
+  "image": "shield-obsidian_shield.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 13,
+   "h": 13
+  },
+  "scale": "1"
+ }
+}
