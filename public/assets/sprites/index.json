@@ -1,0 +1,362 @@
+{
+ "hollow": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 13
+ },
+ "knight": {
+  "frameWidth": 64,
+  "frameHeight": 48,
+  "frames": 13
+ },
+ "warden": {
+  "frameWidth": 128,
+  "frameHeight": 96,
+  "frames": 18
+ },
+ "shepherd": {
+  "frameWidth": 96,
+  "frameHeight": 80,
+  "frames": 15
+ },
+ "ghoul": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 13
+ },
+ "archer": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 13
+ },
+ "npc-merchant": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 3
+ },
+ "npc-corvin": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 3
+ },
+ "slime": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 13
+ },
+ "colossus": {
+  "frameWidth": 128,
+  "frameHeight": 112,
+  "frames": 13
+ },
+ "monk": {
+  "frameWidth": 64,
+  "frameHeight": 48,
+  "frames": 13
+ },
+ "matriarch": {
+  "frameWidth": 96,
+  "frameHeight": 80,
+  "frames": 17
+ },
+ "wraith": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 11
+ },
+ "carrier": {
+  "frameWidth": 64,
+  "frameHeight": 48,
+  "frames": 13
+ },
+ "leech": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 11
+ },
+ "mother": {
+  "frameWidth": 160,
+  "frameHeight": 112,
+  "frames": 15
+ },
+ "mummy": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 15
+ },
+ "legionary": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 15
+ },
+ "gladiator": {
+  "frameWidth": 96,
+  "frameHeight": 80,
+  "frames": 22
+ },
+ "sphinx": {
+  "frameWidth": 160,
+  "frameHeight": 96,
+  "frames": 17
+ },
+ "skywisp": {
+  "frameWidth": 48,
+  "frameHeight": 40,
+  "frames": 11
+ },
+ "cloudslime": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 13
+ },
+ "leviathan": {
+  "frameWidth": 240,
+  "frameHeight": 96,
+  "frames": 15
+ },
+ "ayame": {
+  "frameWidth": 96,
+  "frameHeight": 80,
+  "frames": 20
+ },
+ "maiden": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 13
+ },
+ "faceless": {
+  "frameWidth": 64,
+  "frameHeight": 48,
+  "frames": 13
+ },
+ "lantern": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 11
+ },
+ "hair": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 11
+ },
+ "king": {
+  "frameWidth": 128,
+  "frameHeight": 96,
+  "frames": 19
+ },
+ "player-garb": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-knight_armor": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-hunter_leathers": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-ember_robes": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-warden_plate": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-naked": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-frostbound_mantle": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-mire_leathers": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-mummy_wraps": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-legion_plate": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-whale_scale": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-white_cloak": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-white_kimono": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "player-ashen_regalia": {
+  "frameWidth": 48,
+  "frameHeight": 32,
+  "frames": 44
+ },
+ "weapon-longsword": {
+  "frameWidth": 39,
+  "frameHeight": 39,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-greataxe": {
+  "frameWidth": 39,
+  "frameHeight": 39,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-rapier": {
+  "frameWidth": 37,
+  "frameHeight": 37,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-bone_scythe": {
+  "frameWidth": 45,
+  "frameHeight": 45,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-shortsword": {
+  "frameWidth": 29,
+  "frameHeight": 29,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-dagger": {
+  "frameWidth": 23,
+  "frameHeight": 23,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-flame_longsword": {
+  "frameWidth": 39,
+  "frameHeight": 39,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-frost_longsword": {
+  "frameWidth": 39,
+  "frameHeight": 39,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-venom_longsword": {
+  "frameWidth": 39,
+  "frameHeight": 39,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-flame_shortsword": {
+  "frameWidth": 29,
+  "frameHeight": 29,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-frost_shortsword": {
+  "frameWidth": 29,
+  "frameHeight": 29,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-flame_greataxe": {
+  "frameWidth": 39,
+  "frameHeight": 39,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-frost_greataxe": {
+  "frameWidth": 39,
+  "frameHeight": 39,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-venom_rapier": {
+  "frameWidth": 37,
+  "frameHeight": 37,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-frost_spear": {
+  "frameWidth": 49,
+  "frameHeight": 49,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-sand_scepter": {
+  "frameWidth": 31,
+  "frameHeight": 31,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-gladius": {
+  "frameWidth": 27,
+  "frameHeight": 27,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-cloudbreaker": {
+  "frameWidth": 37,
+  "frameHeight": 37,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-bridal_knife": {
+  "frameWidth": 23,
+  "frameHeight": 23,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "weapon-ashen_greatsword": {
+  "frameWidth": 49,
+  "frameHeight": 49,
+  "frames": 72,
+  "stepDegrees": 5
+ },
+ "shield-wooden_shield": {
+  "frameWidth": 11,
+  "frameHeight": 11,
+  "frames": 1
+ },
+ "shield-kite_shield": {
+  "frameWidth": 15,
+  "frameHeight": 15,
+  "frames": 1
+ },
+ "shield-buckler": {
+  "frameWidth": 9,
+  "frameHeight": 9,
+  "frames": 1
+ },
+ "shield-tower_shield": {
+  "frameWidth": 17,
+  "frameHeight": 17,
+  "frames": 1
+ },
+ "shield-obsidian_shield": {
+  "frameWidth": 13,
+  "frameHeight": 13,
+  "frames": 1
+ }
+}

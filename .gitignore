@@ -1,0 +1,10 @@
+node_modules
+dist
+*.local
+
+# capture output and large media (keep the stills; the teaser video is shared elsewhere)
+tools/promo/out/
+promo/*.mp4
+
+# local tooling
+.claude/

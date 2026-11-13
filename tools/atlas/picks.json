@@ -1,0 +1,38 @@
+{
+  "_comment": "name -> row_id in Angais/pixel-art-atlas-1.4m (train split). Chosen by eye from contact sheets.",
+  "items": {
+    "longsword": 26717,
+    "greataxe": 3099,
+    "rapier": 16763,
+    "bread": 911,
+    "ember_herb": 11582,
+    "soul_lost_knight": 61540,
+    "soul_nameless": 6938,
+    "titanite": 6373,
+    "flask_shard": 19,
+    "flask": 29337,
+    "knight_armor": 2783,
+    "garb": 19602,
+    "bone_scythe": 15484,
+    "wooden_shield": 7539,
+    "kite_shield": 4107
+  },
+  "props": {
+    "torch": 879,
+    "wall_torch": 10016,
+    "tombstone": 472,
+    "tombstone_cracked": 7808,
+    "bone": 25607,
+    "coffin": 50746,
+    "chain": 4061,
+    "barrel": 56624,
+    "crate": 1482,
+    "candle": 676,
+    "banner": 20383,
+    "pillar": 18802,
+    "gargoyle": 23899,
+    "skull": 12415,
+    "glow_mushroom": 69469,
+    "lantern": 3869
+  }
+}

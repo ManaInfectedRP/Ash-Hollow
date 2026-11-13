@@ -1,0 +1,231 @@
+================================================================================
+2D SOULS-LIKE PLATFORMER – PROJEKTPLAN
+Phaser 3 + React (Mobil, Force Landscape)
+================================================================================
+
+1. VISION & KÄRNIDÉ
+--------------------------------------------------------------------------------
+- Genre: 2D side-scrolling platformer med Souls-liknande combat
+  (tung, weighty, precis, högrisk/högbelöning).
+- Inspiration: Elden Ring / Dark Souls combat + Skyrim inventory/exploration
+  + klassisk 2D-platformer (Castlevania, Hollow Knight, Dead Cells).
+- Plattform: Mobil (Android + iOS) + Webb (PWA).
+- Orientation: Force Landscape (låst horisontellt).
+- Art-stil: Pixel art.
+  Huvudkälla: https://huggingface.co/datasets/Angais/pixel-art-atlas-1.4m
+- Ton: Dark fantasy, utmanande men fair.
+
+
+2. TEKNISK STACK
+--------------------------------------------------------------------------------
+Frontend / UI:          React 18+ (Vite)
+Spelmotor:              Phaser 3 (senaste stabila)
+State management:       Zustand eller Redux Toolkit (för inventory, stats, UI)
+Styling:                Tailwind CSS eller CSS Modules
+Mobil-export:           Capacitor (rekommenderas) eller React Native WebView
+Build tool:             Vite
+Språk:                  TypeScript (starkt rekommenderat)
+Asset-hantering:        Phaser Loader + egen asset pipeline
+Save system:            localStorage + optional cloud (senare)
+
+
+3. ARKITEKTUR – HUR PHASER OCH REACT SAMARBETAR
+--------------------------------------------------------------------------------
+Rekommenderad struktur:
+
+src/
+├── game/                    # All Phaser-kod
+│   ├── scenes/
+│   │   ├── BootScene.ts
+│   │   ├── PreloadScene.ts
+│   │   ├── GameScene.ts
+│   │   ├── UIScene.ts       # (valfritt)
+│   │   └── ...
+│   ├── entities/
+│   │   ├── Player.ts
+│   │   ├── Enemy.ts
+│   │   ├── Boss.ts
+│   │   └── ...
+│   ├── systems/
+│   │   ├── CombatSystem.ts
+│   │   ├── InventoryBridge.ts
+│   │   └── ...
+│   ├── config.ts
+│   └── main.ts              # Phaser game instance
+│
+├── components/              # React UI
+│   ├── Inventory/
+│   ├── HUD/
+│   ├── PauseMenu/
+│   ├── CharacterSheet/
+│   ├── Dialogue/
+│   └── ...
+│
+├── stores/                  # Zustand / Redux
+│   ├── playerStore.ts
+│   ├── inventoryStore.ts
+│   └── gameStore.ts
+│
+├── App.tsx
+└── main.tsx
+
+Kommunikation mellan Phaser ↔ React:
+- Använd ett event-system eller en gemensam store (Zustand).
+- Phaser skickar events (t.ex. "player-damaged", "item-picked-up").
+- React lyssnar och uppdaterar UI.
+- React kan skicka kommandon tillbaka till Phaser (t.ex. "use-item", "equip-weapon").
+
+
+4. KÄRNSPELMEKANIK
+--------------------------------------------------------------------------------
+
+4.1 Movement & Controls (mobil-vänligt)
+- Virtual joystick vänster (rörelse + sprint).
+- Höger sida: knappar för Attack, Heavy Attack, Dodge/Roll, Jump, Interact.
+- Alternativ: swipe-gester (t.ex. swipe ner = dodge).
+- Coyote time + jump buffering.
+- Dodge/Roll med i-frames.
+- Stamina-system som begränsar attacks, rolls och sprint.
+
+4.2 Combat (Souls-kärnan)
+- Vapen har egna movesets:
+  - Light attack combo
+  - Heavy attack (långsammare, mer skada, kan bryta poise)
+  - Weapon Art / Special
+  - Charged attack
+- Poise / Hyperarmor-system.
+- Hitstop + screen shake vid träff (mycket viktigt för känslan).
+- Bossar med telegraphed attacks och flera faser.
+
+4.3 Progression
+- Stats: Vigor, Endurance, Strength, Dexterity, etc.
+- Level up vid Rest Points / Bonfires (kostar souls/runes).
+- Vapen-uppgradering.
+- Armor påverkar poise, weight och rörlighet.
+
+4.4 Inventory & Items
+- Inventory-grid (React-komponent).
+- Vapen, shields, armor, consumables.
+- Mat / consumables för HP-regen (både instant och over-time).
+- Estus-liknande flaskor (begränsat antal, refillas vid rest points).
+
+4.5 World
+- Interconnected world (inte klassiska levels).
+- Shortcuts, hemliga områden, optional bosses.
+- Rest Points som checkpoint + refill + level-up.
+
+
+5. ART & ASSET PIPELINE
+--------------------------------------------------------------------------------
+1. Ladda ner / filtrera relevanta sprites från
+   https://huggingface.co/datasets/Angais/pixel-art-atlas-1.4m
+2. Organisera assets:
+   - player/
+   - enemies/
+   - bosses/
+   - weapons/
+   - environment/
+   - ui/
+   - items/
+   - vfx/
+3. Minsta animationer för Player:
+   - Idle, Walk, Run, Jump, Fall, Land
+   - Light Attack 1-3, Heavy Attack, Special
+   - Dodge/Roll, Hit, Death, Interact
+4. Använd Texture Atlas (TexturePacker eller free-tools) för bättre prestanda.
+5. Pixel-perfect rendering (Phaser har bra stöd för detta).
+
+
+6. UTVECKLINGSFASER
+--------------------------------------------------------------------------------
+
+FAS 0 – Setup (1–2 veckor)
+- Skapa Vite + React + TypeScript-projekt
+- Installera Phaser 3
+- Sätt upp force landscape + responsiv canvas
+- Skapa grundläggande Phaser-game instance inuti React
+- Virtual joystick + grundläggande touch-kontroller
+- Enkel player movement (CharacterController)
+
+FAS 1 – Core Loop (3–5 veckor)
+- Combat-system (light/heavy attacks, hitboxes, stamina)
+- En grundläggande fiende med AI
+- HP, damage, death, respawn
+- En enkel testlevel med platforming
+- Hitstop + screen shake
+
+FAS 2 – Progression & Inventory (3–4 veckor)
+- Inventory-system i React
+- Equip/unequip vapen & armor
+- Olika vapen med olika movesets
+- Consumables (mat för HP)
+- Stats + level-up vid Rest Point
+- Save/Load (localStorage)
+
+FAS 3 – World & Content (löpande)
+- Flera områden + transitions
+- Första riktiga bossen
+- Rest Points / Bonfires
+- Basic NPCs + dialog (React UI)
+- Fler fiendetyper
+
+FAS 4 – Polish & Juice
+- Ljud (mycket viktigt för Souls-känsla)
+- Partiklar & VFX
+- Balancing
+- Performance-optimering (mobil)
+- PWA + Capacitor-export
+
+FAS 5 – Extra (om tid finns)
+- New Game+
+- Fler bossar
+- Crafting
+- Achievements / Death messages
+
+
+7. VIKTIGA DESIGNPRINCIPER (SOULS-KÄNSLA)
+--------------------------------------------------------------------------------
+- Fair men hård difficulty
+- Learning through dying
+- Weight and commitment i varje action
+- Exploration belönas
+- Minimal hand-holding
+- Atmosphere > story
+- Feedback är allt (ljud, hitstop, screen shake, animationer)
+
+
+8. VANLIGA FALLGROPAR MED PHASER + REACT
+--------------------------------------------------------------------------------
+- Att blanda för mycket logik mellan React och Phaser → håll spelet i Phaser,
+  UI i React.
+- Dålig prestanda på mobil → använd texture atlases, object pooling,
+  begränsa partiklar.
+- Touch-kontroller känns klumpiga → iterera tidigt och mycket.
+- State desync mellan Phaser och React → använd en tydlig single source of truth
+  (t.ex. Zustand).
+
+
+9. REKOMMENDERAD STARTORDNING (NÄSTA STEG)
+--------------------------------------------------------------------------------
+1. Skapa projektet:
+   npm create vite@latest souls-platformer -- --template react-ts
+2. Installera Phaser:
+   npm install phaser
+3. Sätt upp en grundläggande GameScene med en rörlig karaktär.
+4. Lägg till virtual joystick (det finns färdiga plugins eller bygg egen).
+5. Importera några sprites från pixel-art-atlas-1.4m och testa rendering.
+6. Bygg en minimal combat-loop (attack + en fiende som tar skada).
+
+
+10. RESURSER
+--------------------------------------------------------------------------------
+- Phaser 3 Docs: https://photonstorm.github.io/phaser3-docs/
+- Phaser 3 Examples: https://phaser.io/examples
+- React + Phaser guides (sök på "phaser react vite")
+- Capacitor Docs (för mobil-export)
+- Pixel Art Atlas: https://huggingface.co/datasets/Angais/pixel-art-atlas-1.4m
+
+
+================================================================================
+Slut på plan
+================================================================================

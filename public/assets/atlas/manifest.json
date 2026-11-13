@@ -1,0 +1,223 @@
+{
+  "source": "Angais/pixel-art-atlas-1.4m",
+  "license": "CC0-1.0",
+  "sprites": {
+    "items/flask_shard": {
+      "group": "items",
+      "name": "flask_shard",
+      "row_id": 19,
+      "subject": "crystal shard",
+      "caption": "orange crystal shard"
+    },
+    "props/tombstone": {
+      "group": "props",
+      "name": "tombstone",
+      "row_id": 472,
+      "subject": "tombstone",
+      "caption": "dusty tombstone"
+    },
+    "props/candle": {
+      "group": "props",
+      "name": "candle",
+      "row_id": 676,
+      "subject": "candle",
+      "caption": "candle"
+    },
+    "props/torch": {
+      "group": "props",
+      "name": "torch",
+      "row_id": 879,
+      "subject": "torch",
+      "caption": "torch"
+    },
+    "items/bread": {
+      "group": "items",
+      "name": "bread",
+      "row_id": 911,
+      "subject": "round bread loaf",
+      "caption": "freshly baked round bread loaf"
+    },
+    "props/crate": {
+      "group": "props",
+      "name": "crate",
+      "row_id": 1482,
+      "subject": "crate",
+      "caption": "crate"
+    },
+    "items/knight_armor": {
+      "group": "items",
+      "name": "knight_armor",
+      "row_id": 2783,
+      "subject": "full plate armor",
+      "caption": "frozen bone full plate armor"
+    },
+    "items/greataxe": {
+      "group": "items",
+      "name": "greataxe",
+      "row_id": 3099,
+      "subject": "great axe",
+      "caption": "bone great axe with runes on the blade"
+    },
+    "props/lantern": {
+      "group": "props",
+      "name": "lantern",
+      "row_id": 3869,
+      "subject": "lantern",
+      "caption": "elegant blue lantern"
+    },
+    "props/chain": {
+      "group": "props",
+      "name": "chain",
+      "row_id": 4061,
+      "subject": "chain",
+      "caption": "dusty chain"
+    },
+    "items/kite_shield": {
+      "group": "items",
+      "name": "kite_shield",
+      "row_id": 4107,
+      "subject": "kite shield",
+      "caption": "polished kite shield"
+    },
+    "items/titanite": {
+      "group": "items",
+      "name": "titanite",
+      "row_id": 6373,
+      "subject": "crystal shard",
+      "caption": "white crystal shard with an inner light"
+    },
+    "items/soul_nameless": {
+      "group": "items",
+      "name": "soul_nameless",
+      "row_id": 6938,
+      "subject": "soul orb",
+      "caption": "huge soul orb with orbiting sparks"
+    },
+    "items/wooden_shield": {
+      "group": "items",
+      "name": "wooden_shield",
+      "row_id": 7539,
+      "subject": "round shield",
+      "caption": "ancient wooden round shield"
+    },
+    "props/tombstone_cracked": {
+      "group": "props",
+      "name": "tombstone_cracked",
+      "row_id": 7808,
+      "subject": "tombstone",
+      "caption": "dusty tombstone with a small crack"
+    },
+    "props/wall_torch": {
+      "group": "props",
+      "name": "wall_torch",
+      "row_id": 10016,
+      "subject": "wall sconce torch",
+      "caption": "simple brown wall sconce torch"
+    },
+    "items/ember_herb": {
+      "group": "items",
+      "name": "ember_herb",
+      "row_id": 11582,
+      "subject": "healing herb",
+      "caption": "sparkling healing herb tied with a string"
+    },
+    "props/skull": {
+      "group": "props",
+      "name": "skull",
+      "row_id": 12415,
+      "subject": "animal skull",
+      "caption": "pristine animal skull"
+    },
+    "items/bone_scythe": {
+      "group": "items",
+      "name": "bone_scythe",
+      "row_id": 15484,
+      "subject": "war scythe",
+      "caption": "bone war scythe with a black shaft"
+    },
+    "items/rapier": {
+      "group": "items",
+      "name": "rapier",
+      "row_id": 16763,
+      "subject": "rapier",
+      "caption": "enchanted bronze rapier"
+    },
+    "props/pillar": {
+      "group": "props",
+      "name": "pillar",
+      "row_id": 18802,
+      "subject": "stone pillar",
+      "caption": "gray stone pillar with moss on one side"
+    },
+    "items/garb": {
+      "group": "items",
+      "name": "garb",
+      "row_id": 19602,
+      "subject": "ranger tunic",
+      "caption": "brown ranger tunic with a belt"
+    },
+    "props/banner": {
+      "group": "props",
+      "name": "banner",
+      "row_id": 20383,
+      "subject": "hanging banner",
+      "caption": "red hanging banner with a checkered pattern"
+    },
+    "props/gargoyle": {
+      "group": "props",
+      "name": "gargoyle",
+      "row_id": 23899,
+      "subject": "gargoyle statue",
+      "caption": "crumbling gargoyle statue with a small crack"
+    },
+    "props/bone": {
+      "group": "props",
+      "name": "bone",
+      "row_id": 25607,
+      "subject": "bone",
+      "caption": "pristine bone with dust specks"
+    },
+    "items/longsword": {
+      "group": "items",
+      "name": "longsword",
+      "row_id": 26717,
+      "subject": "arming sword",
+      "caption": "arming sword"
+    },
+    "items/flask": {
+      "group": "items",
+      "name": "flask",
+      "row_id": 29337,
+      "subject": "potion bottle",
+      "caption": "half-full potion bottle with a cork stopper"
+    },
+    "props/coffin": {
+      "group": "props",
+      "name": "coffin",
+      "row_id": 50746,
+      "subject": "coffin",
+      "caption": "worn coffin with a small crack"
+    },
+    "props/barrel": {
+      "group": "props",
+      "name": "barrel",
+      "row_id": 56624,
+      "subject": "barrel",
+      "caption": "giant barrel with a small crack"
+    },
+    "items/soul_lost_knight": {
+      "group": "items",
+      "name": "soul_lost_knight",
+      "row_id": 61540,
+      "subject": "soul orb",
+      "caption": "shimmering soul orb with tiny runes around it"
+    },
+    "props/glow_mushroom": {
+      "group": "props",
+      "name": "glow_mushroom",
+      "row_id": 69469,
+      "subject": "glowcap mushroom",
+      "caption": "cursed glowcap mushroom with a dewdrop"
+    }
+  }
+}

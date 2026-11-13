@@ -1,0 +1,68 @@
+# Publishes the game to GitHub Pages (the gh-pages branch):
+#   push to dev  → the test build at  https://manainfectedrp.github.io/Ash-Hollow/dev/
+#   push to main → the real game at    https://manainfectedrp.github.io/Ash-Hollow/
+# The two live side by side: a main deploy replaces everything except dev/, a dev deploy replaces only dev/.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, dev]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# one deploy at a time, in order – never cancel one halfway through a push
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build & publish (${{ github.ref_name }})
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+
+      - name: Build
+        run: npx vite build
+        env:
+          # the dev branch builds the labelled test channel (see vite.config.ts)
+          CHANNEL: ${{ github.ref_name == 'dev' && 'dev' || 'release' }}
+
+      - name: Publish to gh-pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          TARGET: ${{ github.ref_name == 'dev' && 'dev' || 'root' }}
+          SHA: ${{ github.sha }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git clone --quiet --depth 1 --branch gh-pages "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" site
+          cd site
+          if [ "$TARGET" = "dev" ]; then
+            rm -rf dev
+            mkdir dev
+            cp -r ../dist/. dev/
+          else
+            # everything at the root except the dev build and git itself
+            find . -mindepth 1 -maxdepth 1 ! -name .git ! -name dev -exec rm -rf {} +
+            cp -r ../dist/. .
+          fi
+          touch .nojekyll
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing changed – no deploy needed."
+            exit 0
+          fi
+          git commit --quiet -m "Deploy ${TARGET} from ${SHA::7}"
+          git push --quiet origin gh-pages
+          if [ "$TARGET" = "dev" ]; then URL="https://manainfectedrp.github.io/Ash-Hollow/dev/"; else URL="https://manainfectedrp.github.io/Ash-Hollow/"; fi
+          echo "### Deployed ${TARGET}: ${URL}" >> "$GITHUB_STEP_SUMMARY"
