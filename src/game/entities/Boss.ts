@@ -1224,6 +1224,8 @@ export const GLADIATOR: EnemyConfig = {
 };
 
 const SPIN_HIT_EVERY = 0.4;
+/** whirl animation speed: frames per second (four frames = one turn) */
+const SPIN_FPS = 16;
 
 /**
  * The last of the arena's champions, a blade in each hand.
@@ -1236,9 +1238,13 @@ export class Gladiator extends Boss {
   private spinFor = 3;
   private spinHitT = 0;
   private spikeT = 0;
+  private whirlBack: Phaser.GameObjects.Graphics;
+  private whirlFront: Phaser.GameObjects.Graphics;
 
   constructor(scene: GameScene, x: number, y: number) {
     super(scene, GLADIATOR, x, y);
+    this.whirlBack = scene.add.graphics();
+    this.whirlFront = scene.add.graphics();
     this.phase2Tint = 0xffd0b0;
     this.thresholds = [0.75, 0.5, 0.25];
   }
@@ -1339,11 +1345,55 @@ export class Gladiator extends Boss {
 
   protected animate() {
     const a = this.atk;
+    const spinning = this.state === 'attack' && a?.def.id === 'spin' && a.phase === 1;
+    this.drawWhirl(spinning);
     if (this.state === 'attack' && a?.def.id === 'spin') {
-      this.sprite.setFrame(a.phase === 0 ? 'spinW' : a.phase === 1 ? `spin${Math.floor(this.animT * 16) % 4}` : 'dizzy');
+      if (spinning) {
+        // four frames per turn; frames 2–3 are the same poses turned round (facing drives flipX)
+        const k = Math.floor(this.animT * SPIN_FPS) % 4;
+        this.facing = k < 2 ? 1 : -1;
+        this.sprite.setFrame(`spin${k}`);
+      } else this.sprite.setFrame(a.phase === 0 ? 'spinW' : 'dizzy');
       return;
     }
     super.animate();
+  }
+
+  /** the steel trail of the whirl: a flat ring at blade height, half behind him and half in front */
+  private drawWhirl(on: boolean) {
+    const back = this.whirlBack;
+    const front = this.whirlFront;
+    back.clear();
+    front.clear();
+    if (!on || !this.alive) return;
+    back.setDepth(this.sprite.depth - 1);
+    front.setDepth(this.sprite.depth + 1);
+    const cx = this.x;
+    const cy = this.sprite.y - 36;
+    const rx = 34;
+    const ry = 7;
+    // one revolution per four frames, like the sprite
+    const turn = (this.animT * SPIN_FPS * Math.PI) / 2;
+    for (const blade of [0, Math.PI]) {
+      const head = turn + blade;
+      const SEG = 14;
+      const TRAIL = 2.2;
+      for (let i = 0; i < SEG; i++) {
+        const t0 = head - TRAIL * (1 - i / SEG);
+        const t1 = head - TRAIL * (1 - (i + 1) / SEG);
+        const alpha = 0.08 + 0.6 * ((i + 1) / SEG) ** 1.5;
+        // the near side of the ring (bottom of the ellipse) passes in front of him
+        const g = Math.sin((t0 + t1) / 2) > 0 ? front : back;
+        g.lineStyle(i > SEG - 4 ? 3 : 2, 0xeef2fa, alpha);
+        g.lineBetween(cx + Math.cos(t0) * rx, cy + Math.sin(t0) * ry, cx + Math.cos(t1) * rx, cy + Math.sin(t1) * ry);
+      }
+    }
+  }
+
+  destroy() {
+    this.whirlBack.destroy();
+    this.whirlFront.destroy();
+    super.destroy();
   }
 
   protected onStrike(d: EnemyAttack) {
