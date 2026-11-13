@@ -91,6 +91,16 @@ export function buildCloister(): LevelData {
     banner: 'MATRIARCH FELLED',
     sub: 'The cloister bells fall still',
   };
+  // behind the Matriarch: the meltwater stair down to the Poisoned Mire – the next way on, without
+  // walking back through the cloister, the Hollow and the catacombs
+  b.door(
+    {
+      id: 'thaw-stair', to: 'mire', entry: 'mire-entry', requires: 'matriarchDefeated', sealed: true,
+      lockedMsg: 'Frozen solid. The Matriarch holds the cold here.',
+    },
+    224,
+    22,
+  );
 
   // --- props
   const prop = b.prop.bind(b);

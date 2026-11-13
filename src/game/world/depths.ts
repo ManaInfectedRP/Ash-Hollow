@@ -68,6 +68,16 @@ export function buildDepths(): LevelData {
     banner: 'COLOSSUS FELLED',
     sub: 'The forge-heart cools to stone',
   };
+  // behind the Colossus: with the forge-heart cold, the old stair climbs straight up to the Frostbound Cloister
+  // (the same door the Hollow's rimed gate leads to – no walking back through the lakes)
+  b.door(
+    {
+      id: 'forge-stair', to: 'cloister', entry: 'cloister-entry', requires: 'colossusDefeated', sealed: true,
+      lockedMsg: 'Heat pours from the stair beyond. Nothing passes while the forge-heart burns.',
+    },
+    194,
+    18,
+  );
 
   // ceiling last so the lakes don't clear it
   b.fill(0, 0, 199, 4);
