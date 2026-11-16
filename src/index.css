@@ -610,34 +610,23 @@ kbd {
   color: #ffc070;
 }
 
-/* ---------------------------------------------------------------- rotate */
-.rotate {
-  display: none;
+/* ------------------------------------------------------- fake landscape */
+/* A phone held upright (or held there by the iPhone rotation lock) gets the whole app turned 90° clockwise
+   – see fakeLandscape.ts. The app is laid out at the swapped size, so everything inside is plain landscape;
+   position: fixed children are positioned against the transformed .app, so they turn with it. */
+html.fake-landscape .app {
+  inset: auto;
+  top: 0;
+  left: 0;
+  width: var(--vh);
+  height: var(--vw);
+  transform-origin: 0 0;
+  transform: translateX(var(--vw)) rotate(90deg);
 }
-.rotate-note {
-  max-width: 280px;
-  font-size: 13px;
-  color: var(--ink-dim);
-}
-@media (orientation: portrait) and (pointer: coarse) {
-  .rotate {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    background: var(--bg);
-    padding: 16px;
-    text-align: center;
-  }
-  .rotate-icon {
-    font-size: 64px;
-    color: var(--gold);
-    animation: spin 2s ease-in-out infinite;
-  }
+/* turned clockwise, the screen's top edge (notch) is the app's left and its bottom (home bar) the right */
+html.fake-landscape {
+  --safe-l: env(safe-area-inset-top, 0px);
+  --safe-r: env(safe-area-inset-bottom, 0px);
 }
 
 @keyframes fade {
@@ -657,10 +646,6 @@ kbd {
   15% { opacity: 1; }
   80% { opacity: 1; }
   100% { opacity: 0; }
-}
-@keyframes spin {
-  0%, 30% { transform: rotate(0deg); }
-  60%, 100% { transform: rotate(90deg); }
 }
 
 /* ---------------------------------------------------------------- icons + inventory */

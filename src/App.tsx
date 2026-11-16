@@ -15,12 +15,6 @@ export default function App() {
       <Overlays />
       <MainMenu />
       <DebugMenu />
-      <div className="rotate">
-        <div className="rotate-icon">⟳</div>
-        <div>Rotate your device to landscape</div>
-        {/* a web page can't rotate the screen itself – on iPhone the usual culprit is the rotation lock */}
-        <div className="rotate-note">Screen not turning? Switch off the rotation lock in Control Center.</div>
-      </div>
     </div>
   );
 }
