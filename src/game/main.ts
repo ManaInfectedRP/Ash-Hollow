@@ -9,9 +9,39 @@ import { usePlayerStore } from '../stores/playerStore';
 import { useGameStore } from '../stores/gameStore';
 import { sfx } from './systems/Sfx';
 
-/** Fixed 270px height; width follows the screen aspect so wide phones get no side bars. */
-function computeWidth() {
-  const ar = window.innerWidth / Math.max(1, window.innerHeight);
+// Phaser sizes and centres the canvas from getBoundingClientRect(), which is the on-screen box – rotated
+// when the app fakes landscape (see fakeLandscape.ts). Use the elements' own layout sizes instead.
+type ScaleInternals = {
+  parent?: HTMLElement;
+  parentSize: Phaser.Structs.Size;
+  canvas: HTMLCanvasElement;
+  autoCenter: number;
+};
+const scaleProto = Phaser.Scale.ScaleManager.prototype as unknown as {
+  getParentBounds: () => boolean;
+  updateCenter: () => void;
+};
+scaleProto.getParentBounds = function (this: ScaleInternals) {
+  if (!this.parent) return false;
+  const w = this.parent.clientWidth;
+  const h = this.parent.clientHeight;
+  if (this.parentSize.width === w && this.parentSize.height === h) return false;
+  this.parentSize.setSize(w, h);
+  return true;
+};
+scaleProto.updateCenter = function (this: ScaleInternals) {
+  if (this.autoCenter !== Phaser.Scale.CENTER_BOTH) return; // the only mode this game uses
+  const { style, offsetWidth, offsetHeight } = this.canvas;
+  style.marginLeft = `${Math.floor((this.parentSize.width - offsetWidth) / 2)}px`;
+  style.marginTop = `${Math.floor((this.parentSize.height - offsetHeight) / 2)}px`;
+};
+
+/** Fixed 270px height; width follows the app's aspect so wide phones get no side bars. */
+function computeWidth(parent: HTMLElement) {
+  // the parent's layout size, not the window's: with fake landscape the two are swapped
+  const w = parent.clientWidth || window.innerWidth;
+  const h = parent.clientHeight || window.innerHeight;
+  const ar = w / Math.max(1, h);
   return Math.round(Phaser.Math.Clamp(GAME_H * ar, 400, 640) / 2) * 2;
 }
 
@@ -19,7 +49,7 @@ export function createGame(parent: HTMLElement) {
   const game = new Phaser.Game({
     type: Phaser.AUTO,
     parent,
-    width: computeWidth(),
+    width: computeWidth(parent),
     height: GAME_H,
     pixelArt: true,
     roundPixels: true,
@@ -29,7 +59,7 @@ export function createGame(parent: HTMLElement) {
     input: { activePointers: 3 },
     scene: [BootScene, TitleScene, GameScene],
   });
-  const fit = () => game.scale.setGameSize(computeWidth(), GAME_H);
+  const fit = () => game.scale.setGameSize(computeWidth(parent), GAME_H);
   // iOS Safari fires resize during a rotation, before innerWidth/innerHeight have their new values, so
   // the width would be computed from the old aspect – fit again once the rotation has settled
   let settle = 0;

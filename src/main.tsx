@@ -3,8 +3,10 @@ import App from './App';
 import { sfx } from './game/systems/Sfx';
 import './index.css';
 import { installZoomGuard } from './zoomGuard';
+import { installFakeLandscape } from './fakeLandscape';
 
 installZoomGuard();
+installFakeLandscape(); // before the game boots, so Phaser's first size is already the sideways one
 
 // Audio can only start after a user gesture. On touch devices we also try
 // fullscreen + landscape lock (works on Android/PWA; iOS shows the rotate hint instead).

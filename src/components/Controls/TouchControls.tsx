@@ -1,6 +1,7 @@
 import { useRef, useState, type PointerEvent as RPointerEvent } from 'react';
 import { type Action, pressTouch, touchInput } from '../../game/input/touchInput';
 import { useGameStore } from '../../stores/gameStore';
+import { toLocal } from '../../fakeLandscape';
 
 const RADIUS = 52;
 const SPRINT_AT = 0.9;
@@ -12,8 +13,10 @@ function Joystick() {
   const id = useRef<number | null>(null);
 
   const move = (e: RPointerEvent, o: { x: number; y: number }) => {
-    let dx = e.clientX - o.x;
-    let dy = e.clientY - o.y;
+    // in the app's own frame, so the stick still points the right way when landscape is faked
+    const p = toLocal(e.clientX, e.clientY);
+    let dx = p.x - o.x;
+    let dy = p.y - o.y;
     const len = Math.hypot(dx, dy);
     if (len > RADIUS) {
       dx = (dx / len) * RADIUS;
@@ -42,7 +45,7 @@ function Joystick() {
         if (id.current !== null) return;
         id.current = e.pointerId;
         e.currentTarget.setPointerCapture(e.pointerId);
-        const o = { x: e.clientX, y: e.clientY };
+        const o = toLocal(e.clientX, e.clientY);
         setOrigin(o);
         move(e, o);
       }}
