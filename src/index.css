@@ -614,6 +614,11 @@ kbd {
 .rotate {
   display: none;
 }
+.rotate-note {
+  max-width: 280px;
+  font-size: 13px;
+  color: var(--ink-dim);
+}
 @media (orientation: portrait) and (pointer: coarse) {
   .rotate {
     position: fixed;
