@@ -33,6 +33,23 @@ body,
   touch-action: none;
 }
 
+/* No browser zoom anywhere (double tap or pinch would push the touch controls off-screen). touch-action is
+   not inherited and every overflow container starts a fresh chain, so it goes on each element; the
+   scrollable panels keep panning so their lists still scroll. */
+* {
+  touch-action: none;
+}
+.panel,
+.panel *,
+.inv section,
+.inv section *,
+.inv-grid,
+.inv-grid *,
+.dbg-body,
+.dbg-body * {
+  touch-action: pan-x pan-y;
+}
+
 .app {
   position: fixed;
   inset: 0;
@@ -596,6 +613,11 @@ kbd {
 /* ---------------------------------------------------------------- rotate */
 .rotate {
   display: none;
+}
+.rotate-note {
+  max-width: 280px;
+  font-size: 13px;
+  color: var(--ink-dim);
 }
 @media (orientation: portrait) and (pointer: coarse) {
   .rotate {

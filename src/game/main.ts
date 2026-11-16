@@ -29,7 +29,18 @@ export function createGame(parent: HTMLElement) {
     input: { activePointers: 3 },
     scene: [BootScene, TitleScene, GameScene],
   });
-  const onResize = () => game.scale.setGameSize(computeWidth(), GAME_H);
+  const fit = () => game.scale.setGameSize(computeWidth(), GAME_H);
+  // iOS Safari fires resize during a rotation, before innerWidth/innerHeight have their new values, so
+  // the width would be computed from the old aspect – fit again once the rotation has settled
+  let settle = 0;
+  const onResize = () => {
+    fit();
+    clearTimeout(settle);
+    settle = window.setTimeout(() => {
+      fit();
+      game.scale.refresh();
+    }, 350);
+  };
   // a page that boots hidden (app started with the screen off, background tab) can end up with a
   // 0×0 canvas – re-fit whenever it becomes visible
   const onVisible = () => {
@@ -42,6 +53,7 @@ export function createGame(parent: HTMLElement) {
   document.addEventListener('visibilitychange', onVisible);
   game.events.once(Phaser.Core.Events.DESTROY, () => {
     window.removeEventListener('resize', onResize);
+    clearTimeout(settle);
     document.removeEventListener('visibilitychange', onVisible);
   });
   // ?debug exposes hooks for automated testing in the browser console

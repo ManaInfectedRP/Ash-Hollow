@@ -91,7 +91,8 @@ execFileSync(
     '-i', sfxWav,
     '-filter_complex', filter.replace(/\[(\d):a\]/g, (m, n) => `[${+n + 1}:a]`),
     '-map', '0:v', '-map', '[aout]',
-    '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', '-movflags', '+faststart',
+    // crf 21 keeps a ~60 s 1080p teaser under 20 MB (crf 18 gave ~25 MB)
+    '-c:v', 'libx264', '-preset', 'slow', '-crf', '21', '-pix_fmt', 'yuv420p', '-movflags', '+faststart',
     '-c:a', 'aac', '-b:a', '192k', '-shortest',
     outFile,
   ],
