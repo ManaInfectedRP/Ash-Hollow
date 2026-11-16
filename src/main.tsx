@@ -2,6 +2,9 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import { sfx } from './game/systems/Sfx';
 import './index.css';
+import { installZoomGuard } from './zoomGuard';
+
+installZoomGuard();
 
 // Audio can only start after a user gesture. On touch devices we also try
 // fullscreen + landscape lock (works on Android/PWA; iOS shows the rotate hint instead).
